@@ -1,0 +1,9 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Check if the request is not pointing to a real file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirect all requests to index.php with the URL as a parameter
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
